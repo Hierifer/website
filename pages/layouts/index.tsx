@@ -1,8 +1,7 @@
 import { NextPage } from 'next'
 import Header from './header'
-import { OmitProps } from 'antd/lib/transfer/ListBody'
 
-const BasicLayout: NextPage = ({ children }: {children: any}) => {
+const BasicLayout: any = ({ children }: {children: any}) => {
     return (
       <div>
         <Header>

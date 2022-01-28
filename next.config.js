@@ -1,7 +1,6 @@
 // next.config.js
-const withAntdLess = require('next-plugin-antd-less');
 
-module.exports = withAntdLess({
+module.exports = {
   modifyVars: { '@primary-color': '#04f' }, // optional
   lessVarsFilePath: './src/styles/variables.less', // optional 
   lessVarsFilePathAppendToEndOfContent: false, // optional
@@ -17,7 +16,11 @@ module.exports = withAntdLess({
       return "whatever_random_class_name";
     },
   },
-
+  eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
+  },
   // for Next.js ONLY
   nextjs: {
     localIdentNameFollowDev: true, // default false, for easy to debug on PROD mode
@@ -30,7 +33,5 @@ module.exports = withAntdLess({
   },
 
   // ONLY for Next.js 10, if you use Next.js 11, delete this block
-  future: {
-    webpack5: true,
-  },
-});
+  webpack5: true,
+};
