@@ -1,5 +1,6 @@
 import { NextPage } from 'next'
-import { IconRightCircle } from "@arco-design/web-react/icon"
+import { Icon } from '@arco-design/web-react'
+import { IconSend } from '@arco-design/web-react/icon'
 import { useRouter } from 'next/router'
 import { Menu } from '@arco-design/web-react';
 
@@ -7,12 +8,13 @@ import { Menu } from '@arco-design/web-react';
 const Header: NextPage = () => {
     const router = useRouter()
     const MenuItem = Menu.Item
-
+    const Iconfont = Icon.addFromIconFontCn({src: '//at.alicdn.com/t/font_3166624_wqrg04cgej.js'});
+    
     return (
         <div className="h-12 w-screen bg-grey-1 bg-opacity-80 backdrop-blur-sm fixed top-0 left-0 z-50 flex justify-center items-center">
-            <div className="max-w-5xl w-screen flex justify-between items-center">
+            <div className="max-w-5xl p-4 w-screen flex justify-between items-center">
                 <div>
-                    <IconRightCircle />
+                    <Iconfont type="icon-nh-logo" />
                 </div>
 
                 <div className="w-48 flex justify-between items-center">
