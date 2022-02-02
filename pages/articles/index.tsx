@@ -1,51 +1,52 @@
-import { NextPage } from 'next'
-import { List, Avatar } from '@arco-design/web-react';
-import { Input } from '@arco-design/web-react';
+import fs from 'fs';
+import matter from 'gray-matter';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useState, useEffect } from 'react'
 
-const Articles: NextPage = () => {
-  const InputSearch = Input.Search;
+export async function getStaticProps() {
+  const files = fs.readdirSync('contents');
+  console.log(files)
+  const posts = files.map((fileName) => {
+    const slug = fileName.replace('.md', '');
+    const readFile = fs.readFileSync(`contents/${fileName}`, 'utf-8');
+    const { data: frontmatter } = matter(readFile);
+    return {
+      slug,
+      frontmatter,
+    };
+  });
 
+  return {
+    props: {
+      posts,
+    },
+  };
+}
+
+const Page: NextPage = ({ posts }) => {
     return (
-      <div>
-        <div className="mb-4">
-          <div className="mb-2">
-            文章搜素
+      <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-0'>
+        {posts.map(({ slug, frontmatter }) => (
+          <div
+            key={slug}
+            className='border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col'
+          >
+            <Link href={`/post/${slug}`}>
+              <a>
+                <Image
+                  width={650}
+                  height={340}
+                  alt={frontmatter.title}
+                  src={`/${frontmatter.socialImage}`}
+                />
+                <h1 className='p-4'>{frontmatter.title}</h1>
+              </a>
+            </Link>
           </div>
-          
-          <InputSearch
-            allowClear
-            placeholder='Enter keyword to search'
-          />
-        </div>
-
-        <List 
-          virtualListProps={{
-            height: 560,
-          }}
-          dataSource={new Array(10000).fill(null).map((_, index) => {
-            const prefix = `0000${index}`.slice(-5);
-            return {
-              title: 'Beijing Bytedance Technology Co., Ltd.',
-              description: `(${prefix}) Beijing ByteDance Technology Co., Ltd. is an enterprise located in China.`,
-            };
-          })}
-          render={(item, index) => (
-            <List.Item key={index}>
-              <List.Item.Meta
-                avatar={
-                  <Avatar shape='square'>
-                    A
-                  </Avatar>
-                }
-                title={item.title}
-                description={item.description}
-              />
-            </List.Item>
-          )}
-        />
+        ))}
       </div>
     )
   }
   
-  export default Articles
-  
+export default Page

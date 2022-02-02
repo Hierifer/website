@@ -1,6 +1,6 @@
-// next.config.js
+const withTM = require('next-transpile-modules')(['react-markdown']);
 
-module.exports = {
+module.exports = withTM({
   modifyVars: { '@primary-color': '#04f' }, // optional
   lessVarsFilePath: './src/styles/variables.less', // optional 
   lessVarsFilePathAppendToEndOfContent: false, // optional
@@ -26,12 +26,17 @@ module.exports = {
     localIdentNameFollowDev: true, // default false, for easy to debug on PROD mode
   },
 
-  // Other Config Here...
+  webpack: (config) => {
+    config.module.rules.push(
+      {
+        test: /\.md$/,
+        use: 'raw-loader'
+      }
+    )
 
-  webpack(config) {
-    return config;
+    return config
   },
 
   // ONLY for Next.js 10, if you use Next.js 11, delete this block
   webpack5: true,
-};
+});
