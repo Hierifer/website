@@ -1,5 +1,6 @@
 import fs from 'fs';
 import matter from 'gray-matter';
+//@ts-ignore
 import md from 'markdown-it';
 import '../../styles/home.module.css';
 import { callbackify } from 'util';
@@ -17,7 +18,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params: { slug } }) {
+export async function getStaticProps({ params: { slug } } : {params: {slug: string}}) {
   const fileName = fs.readFileSync(`contents/${slug}.md`, 'utf-8');
   const { data: frontmatter, content } = matter(fileName);
   return {
@@ -37,7 +38,5 @@ const PostPage = (props: any) => {
       </div>
     )
 }
-
-
 
 export default PostPage
