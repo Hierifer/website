@@ -1,6 +1,4 @@
-const withTM = require('next-transpile-modules')(['react-markdown']);
-
-module.exports = withTM({
+module.exports = {
   modifyVars: { '@primary-color': '#04f' }, // optional
   lessVarsFilePath: './src/styles/variables.less', // optional 
   lessVarsFilePathAppendToEndOfContent: false, // optional
@@ -39,4 +37,4 @@ module.exports = withTM({
 
   // ONLY for Next.js 10, if you use Next.js 11, delete this block
   webpack5: true,
-});
+};
