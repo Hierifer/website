@@ -6,12 +6,12 @@ const BasicLayout: any = ({ children }: {children: any}) => {
     return (
       <div>
         <Header />
-        <div className="mt-16 flex justify-center">
-            <div className=" max-w-5xl w-screen">
+        <div className="py-16 flex justify-center min-h-screen bg-gray-50">
+            <div className=" max-w-5xl w-screen ">
                 {children}
             </div>
+            <Footer />
         </div>
-        <Footer />
       </div>
     )
   }
