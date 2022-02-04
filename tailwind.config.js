@@ -16,7 +16,7 @@ module.exports = {
           red: colors.rose,
           yellow: colors.amber,
           sky: colors.sky,
-          'grey-1': '#e6e8eb',
+          'gray-1': '#e6e8eb',
         },
       },
     },

@@ -1,20 +1,23 @@
+import { NextPage } from 'next'
 import fs from 'fs';
-import { NextPage } from 'next';
 import matter from 'gray-matter';
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { useState, useEffect } from 'react'
+import { List, Avatar } from '@arco-design/web-react';
+import { Input } from '@arco-design/web-react';
+import {useState} from 'react';
+import { useRouter } from 'next/router'
 
 export async function getStaticProps() {
   const files = fs.readdirSync('contents');
-  console.log(files)
-  const posts = files.map((fileName) => {
-    const slug = fileName.replace('.md', '');
-    const readFile = fs.readFileSync(`contents/${fileName}`, 'utf-8');
-    const { data: frontmatter } = matter(readFile);
+  const posts = files.map((path) => {
+    const fileName = path.replace('.md', '');
+    const { data, content } = matter(fs.readFileSync(`contents/${path}`, 'utf-8'));
+    let ctime;
+
     return {
-      slug,
-      frontmatter,
+      fileName,
+      data,
+      content,
+      path
     };
   });
 
@@ -25,30 +28,45 @@ export async function getStaticProps() {
   };
 }
 
-const Page: NextPage = (props: any) => {
-  const { posts } = props
+const Articles: NextPage = (props: any) => {
+  const InputSearch = Input.Search;
+  const [search, setSearch] = useState('')
+  const posts : any[] = props.posts
+
+  const displayList: () => any[] = () => {
+    return search === ''? posts : posts.filter((post) => post.slug === search)
+  }
     return (
-      <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-0'>
-        {posts.map(({ slug, frontmatter }: { slug: string, frontmatter: any}) => (
-          <div
-            key={slug}
-            className='border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col'
-          >
-            <Link href={`/post/${slug}`}>
-              <a>
-                <Image
-                  width={650}
-                  height={340}
-                  alt={frontmatter.title}
-                  src={`/${frontmatter.socialImage}`}
-                />
-                <h1 className='p-4'>{frontmatter.title}</h1>
-              </a>
-            </Link>
+      <div>
+        <div className="mb-4 bg-white p-4">
+          <div className="mb-4 font-bold text-gray-600">
+            文章搜素
           </div>
-        ))}
+          
+          <InputSearch
+            allowClear
+            className="mb-4"
+            onChange={setSearch}
+            placeholder='Enter keyword to search'
+          />
+
+          <List 
+            virtualListProps={{
+              height: 560,
+            }}
+            dataSource={displayList()}
+            render={(item, index) => (
+              <List.Item key={index}>
+                <Avatar shape='square' className="mr-4">
+                  A
+                </Avatar>
+                <a target="_blank" href={`./articles/${item.fileName}`} className="hover:text-blue-700">{item.fileName}</a>
+              </List.Item>
+             )} 
+            />
+        </div>
       </div>
     )
   }
   
-export default Page
+  export default Articles
