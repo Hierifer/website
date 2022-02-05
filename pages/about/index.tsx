@@ -21,19 +21,19 @@ const Home: NextPage = () => {
           hoverable
           className='card-with-icon-hover w-full max-w-xs'
         >
-          <Avatar>
-            <img alt='avatar' src='https://avatars.githubusercontent.com/u/10717978?s=40&v=4' />
-          </Avatar>
           <Divider>
-            
+            <img alt='avatar' src='https://avatars.githubusercontent.com/u/10717978?s=40&v=4' />
           </Divider>
           <div className="flex-col">
-            <div className="text-lg">
+            <div className="text-lg mb-2">
               Hierifer Hu
             </div>
-            <div>hierifer@hotmail.com</div>
-            <div><IconGithub /> Hierifer</div>
-            <div>兴趣领域：产品设计，计算机图形，计算机视觉</div>
+            <div className="mb-2">
+              <div>hierifer@hotmail.com</div>
+              <div><a target="_blank" href="https://github.com/hierifer"><IconGithub /> Hierifer</a></div>
+            </div>
+
+            <div className="text-gray-500 mb-2">兴趣领域：产品设计，计算机图形，计算机视觉</div>
           </div>
           
         </Card>

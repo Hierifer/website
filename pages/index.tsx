@@ -12,10 +12,8 @@ const Home: NextPage = () => {
   return (
     <div>
       <Carousel
-        style={{
-          width: 600,
-          height: 240,
-        }}
+        className="w-screen h-screen"
+        style={{position: 'absolute', top: '0px', left: '0px'}}
         autoPlay={true}
         indicatorType='dot'
         showArrow='hover'
@@ -26,6 +24,8 @@ const Home: NextPage = () => {
               src={src}
               style={{
                 width: '100%',
+                height: '100%',
+                objectFit: 'cover'
               }}
             />
           </div>
