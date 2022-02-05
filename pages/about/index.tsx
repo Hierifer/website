@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import { Divider } from '@arco-design/web-react';
 import { Card, Avatar, Typography } from '@arco-design/web-react';
+import { IconGithub } from '@arco-design/web-react/icon';
 
 const Home: NextPage = () => {
     return (
@@ -20,7 +21,21 @@ const Home: NextPage = () => {
           hoverable
           className='card-with-icon-hover w-full max-w-xs'
         >
-          <Avatar />
+          <Avatar>
+            <img alt='avatar' src='https://avatars.githubusercontent.com/u/10717978?s=40&v=4' />
+          </Avatar>
+          <Divider>
+            
+          </Divider>
+          <div className="flex-col">
+            <div className="text-lg">
+              Hierifer Hu
+            </div>
+            <div>hierifer@hotmail.com</div>
+            <div><IconGithub /> Hierifer</div>
+            <div>兴趣领域：产品设计，计算机图形，计算机视觉</div>
+          </div>
+          
         </Card>
       </div>
     )
