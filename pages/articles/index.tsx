@@ -81,7 +81,7 @@ const Articles: NextPage = (props: any) => {
                   </Avatar>
                   <div>
                     <div className="mb-2">
-                      <a target="_blank" href={`./articles/${item.slug || item.fileName}`} className="hover:text-blue-700 text-lg">{item.title}</a>
+                      <a target="_blank" href={`./articles/${item.slug || item.fileName}`} className="hover:text-hover text-lg">{item.title}</a>
                     </div>
                     
                     <div className="flex text-sm ">

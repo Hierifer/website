@@ -1,6 +1,6 @@
 ---
 title: Hello World
-slug: Hello
+slug: hello
 uid: hh
 ctime: 1644080337543
 ---

@@ -17,6 +17,7 @@ module.exports = {
           yellow: colors.amber,
           sky: colors.sky,
           'gray-1': '#e6e8eb',
+          'hover': '#0284c7',
         },
       },
     },
