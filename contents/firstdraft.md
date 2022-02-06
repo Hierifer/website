@@ -1,6 +1,6 @@
 ---
 title: First Draft
-slug: Hello
+slug: firstdraft
 uid: hh
 ctime: 1644080337543
 ---

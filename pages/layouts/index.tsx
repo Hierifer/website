@@ -6,7 +6,7 @@ const BasicLayout: any = ({ children }: {children: any}) => {
     return (
       <div>
         <Header />
-        <div className="py-16 flex justify-center min-h-screen bg-gray-50">
+        <div className="py-16 flex justify-center min-h-screen bg-gray-50 px-2">
             <div className=" max-w-5xl w-screen ">
                 {children}
             </div>

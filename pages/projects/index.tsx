@@ -2,10 +2,11 @@ import { NextPage } from 'next'
 const { Meta } = Card;
 import { Card, Avatar, Typography } from '@arco-design/web-react';
 import { IconThumbUp, IconShareInternal, IconMore } from '@arco-design/web-react/icon';
+import { REPL_MODE_STRICT } from 'repl';
 
 const Project: NextPage = () => {
     return (
-        <div className='grid grid-cols-3 gap-y-5'>
+        <div className='grid gap-y-5 justify-self-center' style={{gridTemplateColumns: `repeat(auto-fill, minmax(20rem, 1fr))`}}>
             {
                 [1,2,3,4,5].map((index) => {
                     return (

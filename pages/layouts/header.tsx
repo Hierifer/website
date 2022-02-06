@@ -6,15 +6,13 @@ import { useRouter } from 'next/router'
 const Header: NextPage = () => {
     const router = useRouter()
     const Iconfont = Icon.addFromIconFontCn({src: '//at.alicdn.com/t/font_3166624_wqrg04cgej.js'});
-    const menuItemClass = 'font-semibold cursor-pointer text-gray-600 hover:text-sky-600'
+    const menuItemClass = 'font-semibold cursor-pointer text-gray-600 hover:text-hover'
     return (
-        <div className="h-12 w-screen bg-gray-300 bg-opacity-80 backdrop-blur-sm fixed top-0 left-0 z-50 flex justify-center items-center">
+        <div className="h-12 p-4 w-screen bg-gray-300 bg-opacity-80 backdrop-blur-sm fixed top-0 left-0 z-50 flex justify-center items-center">
             <div className="max-w-5xl w-screen flex items-center">
-                <div className="mr-20">
-                    <a className="cursor-pointer" onClick={() => router.push("/", undefined, { shallow: true })}>
-                        <Iconfont style={{width:'1.8rem', height: '1.8rem'}} type="icon-nh-logo" />
-                    </a>
-                </div>
+                <a className="cursor-pointer mr-20" onClick={() => router.push("/", undefined, { shallow: true })}>
+                    <Iconfont className="text-2xl translate-y-0.5" type="icon-nh-logo" />
+                </a>
 
                 <div className="w-48 flex justify-between items-center">
                     <a className={menuItemClass} onClick={() => router.push('/articles', undefined, { shallow: true })}>
