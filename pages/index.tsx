@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react'
 import World from '../public/world.svg'
 
 const Home: NextPage = () => {
-
   return (
     <div className="w-screen h-screen overflow-hidden absolute top-0 left-0">
       <div className="absolute flex flex-col top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-4xl z-20">
