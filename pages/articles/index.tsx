@@ -81,17 +81,17 @@ const Articles: NextPage = (props: any) => {
                   </Avatar>
                   <div>
                     <div className="mb-2">
-                      <a target="_blank" href={`./articles/${item.slug || item.fileName}`} className="hover:text-hover text-lg">{item.title}</a>
+                      <a target="_blank" href={`./articles/${item.slug || item.fileName}`} className="hover:text-hover text-sky-800">{item.title}</a>
                     </div>
                     
-                    <div className="flex text-sm ">
+                    <div className="flex">
                       <div className="flex mr-2">
                         <Avatar size={22} className="mr-1"><img alt='avatar' src={item.icon} /></Avatar>
-                        <span className="text-gray-700">{item.author}</span>
+                        <span className="text-gray-700 text-sm">{item.author}</span>
                       </div>
                       {
                         (() => {
-                          return item.ctime? (<span className="text-gray-500">创建于 {new Date(item.ctime).toDateString()}</span>) : (<></>)
+                          return item.ctime? (<span className="text-gray-500 text-sm">创建于 {new Date(item.ctime).toDateString()}</span>) : (<></>)
                         })()
                       }
                     </div>

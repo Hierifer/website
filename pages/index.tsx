@@ -1,36 +1,46 @@
 import { NextPage } from 'next'
-import React from 'react'
-import { Carousel } from '@arco-design/web-react';
+import React, { useState, useEffect } from 'react'
+import World from '../public/world.svg'
 
 const Home: NextPage = () => {
-  const imageSrc = [
-    '//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/cd7a1aaea8e1c5e3d26fe2591e561798.png~tplv-uwbnlip3yd-webp.webp',
-    '//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/6480dbc69be1b5de95010289787d64f1.png~tplv-uwbnlip3yd-webp.webp',
-    '//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/0265a04fddbd77a19602a15d9d55d797.png~tplv-uwbnlip3yd-webp.webp',
-    '//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/24e0dd27418d2291b65db1b21aa62254.png~tplv-uwbnlip3yd-webp.webp'
-  ];
   return (
-    <div>
-      <Carousel
-        className="w-screen h-screen"
-        style={{position: 'absolute', top: '0px', left: '0px'}}
-        autoPlay={true}
-        indicatorType='dot'
-        showArrow='hover'
-      >
-        {imageSrc.map((src, index) => (
-          <div key={index}>
-            <img
-              src={src}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover'
-              }}
-            />
-          </div>
-        ))}
-      </Carousel>
+    <div className="w-screen h-screen overflow-hidden absolute top-0 left-0">
+      <div className="absolute flex flex-col top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-4xl z-20">
+        <div className="mb-4">因为热爱</div>
+        <div className="font-light mb-2">Because of Love</div>
+        <div className="flex" style={{marginLeft: '2px'}}>
+          <div className='bg-sky-300 w-3 rounded-sm h-3 mr-2' />
+          <div className='bg-orange-300 w-3 rounded-sm h-3 mr-2' />
+          <div className='bg-red-300 w-3 rounded-sm h-3' />
+        </div>
+      </div>
+      <div className="whole h-full" id="map" style={{width:'200%', display: 'flex'}}>
+        <World className="w-full world" />
+        <World className="w-full world" />
+      </div>
+
+      <style jsx>{`
+        @keyframes example {
+          0%   {left: -100%}
+          100% {left: 0%}
+        }
+
+        .whole {
+          animation-name: example;
+          animation-duration: 60s;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+          position: absolute;
+        }
+
+
+        .hoveritem {
+          position: absolute;
+          background: black;
+          color: white;
+          z-index: 100;
+        }
+      `}</style>
     </div>
   )
 }
