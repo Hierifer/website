@@ -8,6 +8,16 @@
   --color-assist: #aaa;
 }
 
+h2 {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  line-height: 2rem
+}
+
 html,
 body {
   padding: 0;
@@ -24,4 +34,8 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.world path {
+  cursor: pointer;
 }

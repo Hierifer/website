@@ -1,35 +1,9 @@
 import { NextPage } from 'next'
 const { Meta } = Card;
-import { Card } from '@arco-design/web-react';
+import { Card, Avatar, Typography } from '@arco-design/web-react';
+import { IconThumbUp, IconShareInternal, IconMore } from '@arco-design/web-react/icon';
+import { REPL_MODE_STRICT } from 'repl';
 
-<<<<<<< Updated upstream
-const BasicLayout: NextPage = () => {
-    return (
-        <Card
-            hoverable
-            style={{ width: 360 }}
-            cover={
-            <div
-                style={{
-                height: 204,
-                overflow: 'hidden',
-                }}
-            >
-                <img
-                style={{ width: '100%', transform: 'translateY(-20px)' }}
-                alt='dessert'
-                src='//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/3ee5f13fb09879ecb5185e440cef6eb9.png~tplv-uwbnlip3yd-webp.webp'
-                />
-            </div>
-            }
-        >
-        <Meta
-            title='Card Title'
-            description={
-                <>
-                Card content <br /> Card content
-                </>
-=======
 const USERS_JSON: {[key: string]: {icon: string, name: string}} = {
     'hh': {
         icon: 'https://avatars.githubusercontent.com/u/10717978?s=40&v=4',
@@ -113,11 +87,9 @@ const Project: NextPage = () => {
                         </Card>
                     )
                 })
->>>>>>> Stashed changes
             }
-        />
-    </Card>
+        </div>
     )
 }
   
-export default BasicLayout
+export default Project
