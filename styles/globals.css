@@ -39,3 +39,12 @@ a {
 .world path {
   cursor: pointer;
 }
+
+.code-block {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+  background: #F5F6F7;
+  margin: 10px 0;
+  padding: 10px;
+}

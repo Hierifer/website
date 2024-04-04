@@ -3,11 +3,16 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import { List, Avatar } from '@arco-design/web-react';
 import { Input } from '@arco-design/web-react';
-import {useState} from 'react';
+import {useState, useMemo} from 'react';
 import { useRouter } from 'next/router'
 
-const AUTHORS_DB: {
-  [key: string]: any;
+interface TAuthor {
+  icon: string
+  name: string
+}
+
+export const AUTHORS_DB: {
+  [key: string]: TAuthor;
 } = {
   'hh': {
     icon: 'https://avatars.githubusercontent.com/u/10717978?s=40&v=4',
@@ -46,38 +51,60 @@ export async function getStaticProps() {
   };
 }
 
-const Articles: NextPage = (props: any) => {
-  const InputSearch = Input.Search;
-  const [search, setSearch] = useState('')
-  const posts : any[] = props.posts
+interface IMDFile{
+  fileName: string
+  title: string
+  slug: string
+  author: string
+  icon: string
+  ctime: number
+  content: string
+  path: string
+}
 
-  const displayList: () => any[] = () => {
+const Articles: NextPage = (props) => {
+  const InputSearch = Input.Search;
+
+  const [search, setSearch] = useState('')
+  //@ts-ignore
+  const posts : IMDFile[] = props.posts
+
+  const displayList = useMemo(() => {
     return search === ''? 
       posts.sort((i1, i2) => 
         new Date(i2.ctime).getTime() - new Date(i1.ctime).getTime()
-      ) : posts.filter((post) => post.slug === search).sort((i1, i2) => 
-        new Date(i2.ctime).getTime() - new Date(i1.ctime).getTime()
+      ) : posts.filter((post) => {
+          return post.title.search(new RegExp(search, "i")) > -1
+        })
+        .sort((i1, i2) => new Date(i2.ctime).getTime() - new Date(i1.ctime).getTime()
       )
-  }
+  },[search, posts])
+
+  const total = useMemo(() => {
+    return displayList.length
+  },[])
+
     return (
       <div>
         <div className="mb-4 bg-white p-4">
           <div className="mb-4 font-bold text-gray-600">
             文章搜素
           </div>
+
+          <div className="mb-4">一共有 <span style={{color: 'orange'}}>{total}</span> 篇博客</div>
           
           <InputSearch
             allowClear
             className="mb-4"
             onChange={setSearch}
-            placeholder='Enter keyword to search'
+            placeholder='搜索关键词'
           />
 
           <List 
             virtualListProps={{
               height: 560,
             }}
-            dataSource={displayList()}
+            dataSource={displayList}
             render={(item, index) => (
               <List.Item key={index}>
                 <div className="flex items-center">

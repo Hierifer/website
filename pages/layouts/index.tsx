@@ -1,8 +1,7 @@
-import { NextPage } from 'next'
 import Header from './header'
 import Footer from './footer'
 
-const BasicLayout: any = ({ children }: {children: any}) => {
+const BasicLayout = ({ children }: {children: any}) => {
     return (
       <div>
         <Header />

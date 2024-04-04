@@ -9,6 +9,7 @@ ctime: 2024/02/02
 
 ### 实现发送缓存
 
+``` javascript
 let cache = {}
 let waitingCallback = {}
 
@@ -24,7 +25,6 @@ function cachedFetch(url, data){ 
     return new Promise((resolve, reject) => {
         let tmp = JSON.stringify(data)
         if(cache[`${url}${tmp}`] && cache[`${url}${tmp}`] !== 'pending'){
-            console.log("here0",)
             resolve(cache[`${url}${tmp}`])
             return
         }
@@ -67,11 +67,12 @@ setTimeout(() => {
         console.log(res)
     })
 },4000)
-
+```
 
 
 ### 实现调度器
 
+``` javascript
 function sleep(ms) {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -103,7 +104,6 @@ class Scheduler {
   }
   // 尝试执行等待的函数
   _run() {
-    //console.log(this.ongoingCount, this.limit)
     if (this.ongoingCount >= this.limit) {
       // wait
       return;
@@ -149,10 +149,11 @@ scheduler
     // 第 3 秒输出结果
     console.log(res);
   });
-
+```
 
 ### 实现重发
 
+``` javascript
 function cfetch(url, data, countdown){
     return new Promise((resolve, reject) =>{
         setTimeout(() => {
@@ -195,3 +196,4 @@ resend('baidu.com', {'d': 1, 'c': 2}).then((res) => {
 }).catch((e) => {
     console.log('err', e)
 })
+```
