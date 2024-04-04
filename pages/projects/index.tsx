@@ -16,13 +16,13 @@ const PROJECTS_JSON = [
         name: '雷电 2077',
         desc: 'Tensorflow 加成下的雷电游戏',
         link: 'https://raiden2077.neo-hex.com',
-        creator: 'Hierifer',
+        creator: 'hh',
     },
     {
         name: '视差展示页',
         desc: '有趣的时差展示',
-        link: 'https://archive.neo-hex.com',
-        creator: 'Hierifer',
+        link: 'https://raiden2077.neo-hex.com',
+        creator: 'hh',
     },
     {
         name: '产品设计日志',
