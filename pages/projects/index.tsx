@@ -23,16 +23,6 @@ const PROJECTS_JSON = [
         desc: '有趣的时差展示',
         link: 'https://archive.neo-hex.com',
         creator: 'hh',
-    },
-    {
-        name: '产品设计日志',
-        desc: '',
-        creator: 'hh',
-    },
-    {
-        name: 'Element 12.5th',
-        desc: '',
-        creator: 'hh'
     }
 ]
 
