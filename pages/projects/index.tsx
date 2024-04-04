@@ -13,10 +13,16 @@ const USERS_JSON: {[key: string]: {icon: string, name: string}} = {
 
 const PROJECTS_JSON = [
     {
-        name: 'H5 游戏',
-        desc: '正在 build, 点击图片进入',
-        link: 'https://games.neo-hex.com',
-        creator: 'hh',
+        name: '雷电 2077',
+        desc: 'Tensorflow 加成下的雷电游戏',
+        link: 'https://raiden2077.neo-hex.com',
+        creator: 'Hierifer',
+    },
+    {
+        name: '视差展示页',
+        desc: '有趣的时差展示',
+        link: 'https://archive.neo-hex.com',
+        creator: 'Hierifer',
     },
     {
         name: '产品设计日志',
