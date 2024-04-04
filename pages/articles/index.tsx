@@ -52,7 +52,12 @@ const Articles: NextPage = (props: any) => {
   const posts : any[] = props.posts
 
   const displayList: () => any[] = () => {
-    return search === ''? posts : posts.filter((post) => post.slug === search).sort((i1, i2) => i1.ctime - i2.ctime)
+    return search === ''? 
+      posts.sort((i1, i2) => 
+        new Date(i2.ctime).getTime() - new Date(i1.ctime).getTime()
+      ) : posts.filter((post) => post.slug === search).sort((i1, i2) => 
+        new Date(i2.ctime).getTime() - new Date(i1.ctime).getTime()
+      )
   }
     return (
       <div>

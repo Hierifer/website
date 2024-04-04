@@ -2,7 +2,7 @@
 title: Promise 的封装
 slug: promise
 uid: hh
-ctime: 1644080337543
+ctime: 2024/02/02
 ---
 
 ## Promise 对异步的封装
