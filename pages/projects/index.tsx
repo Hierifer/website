@@ -21,7 +21,7 @@ const PROJECTS_JSON = [
     {
         name: '视差展示页',
         desc: '有趣的时差展示',
-        link: 'https://raiden2077.neo-hex.com',
+        link: 'https://archive.neo-hex.com',
         creator: 'hh',
     },
     {
