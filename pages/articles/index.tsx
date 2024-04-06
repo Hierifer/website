@@ -66,8 +66,8 @@ const Articles: NextPage = (props) => {
   const InputSearch = Input.Search;
 
   const [search, setSearch] = useState('')
-  //@ts-ignore
-  const posts : IMDFile[] = props.posts
+
+  const posts : IMDFile[] = 'posts' in props && Array.isArray(props.posts)? props.posts : []
 
   const displayList = useMemo(() => {
     return search === ''? 
