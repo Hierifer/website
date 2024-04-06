@@ -56,8 +56,8 @@ const PostPage = (props: {frontmatter: TFrontmatter, content: string}) => {
       //   '<span>Hello World!</span>',
       //   { language: 'xml' }
       // ).value
-      setContent(
-        md(
+      
+      let outHTML =  md(
         {
           // Enable HTML tags in source
           html:         true,
@@ -103,9 +103,9 @@ const PostPage = (props: {frontmatter: TFrontmatter, content: string}) => {
           }
         }
       ).render(content)
-      )
-      
-    })
+      //console.log("mdloaded")
+      setContent( outHTML )
+    }, [])
 
     return (
       <div className='prose mx-auto p-4 bg-white rounded article-inner'>

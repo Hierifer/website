@@ -62,12 +62,12 @@ interface IMDFile{
   path: string
 }
 
-const Articles: NextPage = (props) => {
+const Articles: NextPage = (props:any) => {
   const InputSearch = Input.Search;
 
   const [search, setSearch] = useState('')
 
-  const posts : IMDFile[] = 'posts' in props && Array.isArray(props.posts)? props.posts : []
+  const posts : IMDFile[] = props.posts || []
 
   const displayList = useMemo(() => {
     return search === ''? 
