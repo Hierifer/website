@@ -2,8 +2,25 @@ import { NextPage } from 'next'
 import { Divider } from '@arco-design/web-react';
 import { Card, Avatar, Typography } from '@arco-design/web-react';
 import { IconGithub } from '@arco-design/web-react/icon';
+import { useEffect } from 'react'
 
 const Home: NextPage = () => {
+    useEffect(() => {
+      var ctx;
+      function draw(){
+          const canvas:HTMLCanvasElement = document.getElementById('tutorial') as HTMLCanvasElement || document.createElement('canvas');
+          if (!canvas.getContext || !canvas.getContext("2d")) return;
+          const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+
+          ctx.beginPath();
+          ctx.arc(20,20, 100, 0, Math.PI * 2);
+          ctx.clip();
+      
+          ctx.fillStyle = "pink";
+          ctx.fillRect(20, 20, 100,100);
+      }
+      draw();
+    },[])
     return (
       <div>
         <div className="text-xl my-6 font-bold leading-6">
@@ -16,6 +33,8 @@ const Home: NextPage = () => {
         </div>
 
         <Divider />
+
+        <canvas id="tutorial"></canvas>
 
         <Card
           hoverable
