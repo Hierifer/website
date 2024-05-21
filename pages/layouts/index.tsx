@@ -1,5 +1,6 @@
 import Header from './header'
 import Footer from './footer'
+import { Analytics } from "@vercel/analytics/react"
 
 const BasicLayout = ({ children }: {children: any}) => {
     return (
@@ -11,6 +12,7 @@ const BasicLayout = ({ children }: {children: any}) => {
             </div>
             <Footer />
         </div>
+        <Analytics />
       </div>
     )
   }
