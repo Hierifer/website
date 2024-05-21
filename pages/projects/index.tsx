@@ -23,6 +23,12 @@ const PROJECTS_JSON = [
         desc: '有趣的时差展示',
         link: 'https://archive.neo-hex.com',
         creator: 'hh',
+    },
+    {
+        name: '赛博猎人',
+        desc: '2d 横版冒险游戏',
+        link: 'https://cyberhunter.neo-hex.com',
+        creator: 'hh',
     }
 ]
 
