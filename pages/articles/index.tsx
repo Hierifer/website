@@ -1,10 +1,11 @@
 import { NextPage } from 'next'
 import fs from 'fs';
 import matter from 'gray-matter';
-import { List, Avatar } from '@arco-design/web-react';
+import { List, Avatar, Image } from '@arco-design/web-react';
 import { Input } from '@arco-design/web-react';
-import {useState, useMemo} from 'react';
+import {useState, useMemo, Fragment} from 'react';
 import { useRouter } from 'next/router'
+
 
 interface TAuthor {
   icon: string
@@ -28,7 +29,7 @@ export async function getStaticProps() {
   const files = fs.readdirSync('contents');
   const posts = files.map((path) => {
     const fileName = path.replace('.md', '');
-    const { data, content } = matter(fs.readFileSync(`contents/${path}`, 'utf-8'));
+    const { data } = matter(fs.readFileSync(`contents/${path}`, 'utf-8'));
     let uid: string = data.uid || ''
     const userMeta = AUTHORS_DB[uid]
 
@@ -39,7 +40,8 @@ export async function getStaticProps() {
       author: userMeta.name || '未署名',
       icon: userMeta.icon || '',
       ctime: data.ctime || 0,
-      content,
+      cover: data.cover || '',
+      coverReal: '',
       path
     };
   });
@@ -60,6 +62,8 @@ interface IMDFile{
   ctime: number
   content: string
   path: string
+  cover: string
+  coverReal: string
 }
 
 const Articles: NextPage = (props:any) => {
@@ -83,6 +87,27 @@ const Articles: NextPage = (props:any) => {
   const total = useMemo(() => {
     return displayList.length
   },[])
+
+  const RenderCover = (cover: IMDFile['cover'], index: number) => {
+    if(cover && displayList[index].coverReal === ''){
+      try {
+        let tmp = 'train.png'
+        import(`../../asset/${cover || tmp}`).then((img) => {
+          displayList[index] = {
+            ...displayList[index],
+            coverReal: img.default.src
+          }
+        });
+      } catch(e){
+        console.log(e)
+      }
+    }
+
+    return cover? <Image width={44} className="mr-4" src={displayList[index].coverReal} />:                   
+    <Avatar shape='square' size={44} className="mr-4">
+      文章
+    </Avatar>
+  }
 
     return (
       <div>
@@ -108,9 +133,7 @@ const Articles: NextPage = (props:any) => {
             render={(item, index) => (
               <List.Item key={index}>
                 <div className="flex items-center">
-                  <Avatar shape='square' size={44} className="mr-4">
-                    文章
-                  </Avatar>
+                  { RenderCover(item.cover, index) }
                   <div>
                     <div className="mb-2">
                       <a href={`./articles/${item.slug || item.fileName}`} className="hover:text-hover text-sky-800">{item.title}</a>

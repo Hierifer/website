@@ -16,7 +16,7 @@ const Header: NextPage = () => {
 
                 <div className="w-48 flex justify-between items-center ">
                     <a className={menuItemClass} onClick={() => router.push('/articles', undefined, { shallow: true })}>
-                        文章
+                        博客
                     </a>
                     <a className={menuItemClass} onClick={() => router.push('/projects', undefined, { shallow: true })}>
                         项目

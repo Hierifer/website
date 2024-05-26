@@ -21,6 +21,7 @@ const Home: NextPage = () => {
       }
       draw();
     },[])
+
     return (
       <div>
         <div className="text-xl my-6 font-bold leading-6">

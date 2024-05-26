@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   modifyVars: { '@primary-color': '#04f' }, // optional
   lessVarsFilePath: './src/styles/variables.less', // optional 
@@ -37,6 +39,11 @@ module.exports = {
       issuer: /\.[jt]sx?$/,
       use: ['@svgr/webpack'],
     })
+
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': path.resolve(__dirname, 'src/'),
+    }
     
     return config
   },

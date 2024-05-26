@@ -3,6 +3,7 @@ title: 游戏设计【模拟类】： 末日列车
 slug: firstdraft
 uid: hh
 ctime: 2023/04/04
+cover: 'train.png'
 ---
 
 ## 末日列车
