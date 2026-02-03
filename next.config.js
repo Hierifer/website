@@ -27,25 +27,23 @@ module.exports = {
   },
 
   webpack: (config) => {
-    config.module.rules.push(
-      {
-        test: /\.md$/,
-        use: 'raw-loader'
-      }
-    )
+    config.module.rules.push({
+      test: /\.md$/,
+      use: "raw-loader",
+    });
 
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
-      use: ['@svgr/webpack'],
-    })
+      use: ["@svgr/webpack"],
+    });
 
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': path.resolve(__dirname, 'src/'),
-    }
-    
-    return config
+    // config.resolve.alias = {
+    //   ...config.resolve.alias,
+    //   '@': path.resolve(__dirname, 'src/'),
+    // }
+
+    return config;
   },
 
   // ONLY for Next.js 10, if you use Next.js 11, delete this block
