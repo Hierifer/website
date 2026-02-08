@@ -2,7 +2,7 @@
   "name": "neo-hex",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider next dev",
+    "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider next dev -p 8888",
     "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider next build",
     "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider next start",
     "lint": "cross-env NODE_OPTIONS=--openssl-legacy-provider next lint"
