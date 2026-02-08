@@ -217,14 +217,14 @@ const Home: NextPage = () => {
                   heading={section.heading}
                   subheading={section.subheading}
                   description={section.description ?? ''}
-                  video={section.video}
+                  video={section.video ?? ''}
                   cta={section.cta}
                 />
               ) : section.id === 'collaborate' ? (
                 <BrownieSection
                   heading={section.heading}
                   subheading={section.subheading}
-                  video={section.spotlightVideo}
+                  video={section.spotlightVideo ?? ''}
                 />
               ) : section.id === 'studio' ? (
                 <>
