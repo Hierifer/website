@@ -208,7 +208,7 @@ const Home: NextPage = () => {
                   heading={section.heading}
                   tag={section.tag}
                   subheading={section.subheading}
-                  description={section.description}
+                  description={section.description ?? ''}
                   phoneVideo={section.phoneVideo}
                   cta={section.cta}
                 />
@@ -216,7 +216,7 @@ const Home: NextPage = () => {
                 <CybermonSection
                   heading={section.heading}
                   subheading={section.subheading}
-                  description={section.description}
+                  description={section.description ?? ''}
                   video={section.video}
                   cta={section.cta}
                 />
