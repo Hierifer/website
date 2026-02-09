@@ -3,6 +3,7 @@ import AndroidIcon from '../../asset/Android.svg'
 import IOSIcon from '../../asset/iOS.svg'
 import SteamIcon from '../../asset/steam.svg'
 import CursorIcon from '../../asset/cursor.svg'
+import { STEAM_ICON_COLOR } from '../../styles/colors'
 
 const GREETINGS = [
   '你好，我能帮你吗？',
@@ -145,7 +146,7 @@ const VanillaSection: React.FC<VanillaSectionProps> = ({
             <AndroidIcon className="h-4 w-4" />
             Android
             <span className="text-white/30">|</span>
-            <SteamIcon className="h-4 w-4" style={{ fill: '#144476' }} />
+            <SteamIcon className="h-4 w-4" style={{ fill: STEAM_ICON_COLOR }} />
             Steam
           </p>
         )}

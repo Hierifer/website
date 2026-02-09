@@ -2,6 +2,7 @@ import React from 'react'
 import AndroidIcon from '../../asset/Android.svg'
 import IOSIcon from '../../asset/iOS.svg'
 import SteamIcon from '../../asset/steam.svg'
+import { STEAM_ICON_COLOR } from '../../styles/colors'
 
 interface CybermonSectionProps {
   heading: string
@@ -36,7 +37,7 @@ const CybermonSection: React.FC<CybermonSectionProps> = ({
             <AndroidIcon className="h-4 w-4" />
             Android
             <span className="text-white/30">|</span>
-            <SteamIcon className="h-4 w-4" style={{ fill: '#144476' }} />
+            <SteamIcon className="h-4 w-4" style={{ fill: STEAM_ICON_COLOR }} />
             Steam
           </p>
         )}

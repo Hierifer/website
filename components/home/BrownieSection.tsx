@@ -41,7 +41,7 @@ const BrownieSection: React.FC<BrownieSectionProps> = ({ heading, subheading, vi
 	}, [])
 
 	return (
-		<div className="relative z-10 flex h-full w-full max-w-6xl flex-col items-center justify-between gap-12 px-12 text-white md:flex-row bg-black md:gap-20 md:px-20">
+		<div className="relative z-10 flex h-full w-full max-w-6xl flex-col items-center justify-between gap-12 px-12 text-white md:flex-row md:gap-20 md:px-20">
 			<div className="flex w-full flex-1 justify-center md:max-w-xl">
 				<div className="relative w-full">
 					<div className="pointer-events-none absolute -inset-6 -z-10 rounded-[48px] bg-amber-500/25 blur-3xl opacity-70" />

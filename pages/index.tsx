@@ -183,7 +183,7 @@ const Home: NextPage = () => {
           {SECTIONS.map((section, index) => (
             <section
               key={section.id}
-              className={`relative flex h-screen w-screen shrink-0 items-center justify-center overflow-hidden ${section.id === 'collaborate' ? 'bg-white text-slate-900' : ''}`}
+              className={`relative flex h-screen w-screen shrink-0 items-center justify-center overflow-hidden ${section.id === 'collaborate' ? 'bg-black-800 text-slate-900' : ''}`}
             >
               {/* Video background for sections with video */}
               {section.video && (
