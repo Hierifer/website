@@ -40,6 +40,27 @@ a {
   cursor: pointer;
 }
 
+@keyframes download-slide {
+  0% {
+    transform: translateY(-40%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.download-icon {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-40%);
+}
+
+.download-btn:hover .download-icon {
+  animation: download-slide 0.4s ease-in-out forwards;
+}
 .code-block {
   display: block;
   overflow-x: auto;

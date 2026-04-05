@@ -4,6 +4,7 @@ import VanillaSection from '../components/home/VanillaSection'
 import CybermonSection from '../components/home/CybermonSection'
 import ToffeeSection from '../components/home/ToffeeSection'
 import BrownieSection from '../components/home/BrownieSection'
+import MatSection from '../components/home/MatSection'
 
 const TRANSITION_DURATION = 900
 const WHEEL_DAMPING = 0.72
@@ -18,6 +19,13 @@ const SECTIONS = [
     description: '支持 iOS 和 Android',
     phoneVideo: '/vanilla.mp4',
     cta: { label: '了解更多', href: 'https://vanilla.neo-hex.com' },
+  },
+  {
+    id: 'mat',
+    heading: 'Mat',
+    subheading: '面向 AI 的终端工作站',
+    description: '支持 macOS、Windows 和 Linux',
+    cta: { label: '立刻下载', href: 'https://github.com/Hierifer/mat/releases' },
   },
   {
     id: 'studio',
@@ -164,6 +172,22 @@ const Home: NextPage = () => {
     }
   }, [])
 
+  // Sync URL hash when slide changes
+  useEffect(() => {
+    const id = SECTIONS[activeIndex]?.id
+    if (id) {
+      history.replaceState(null, '', `#${id}`)
+    }
+  }, [activeIndex])
+
+  // On mount, jump to section from URL hash
+  useEffect(() => {
+    const hash = window.location.hash.slice(1)
+    if (!hash) return
+    const index = SECTIONS.findIndex(s => s.id === hash)
+    if (index > 0) setActiveIndex(index)
+  }, [])
+
   return (
     <main className="relative h-screen w-screen overflow-hidden bg-[#050A14] text-white">
       <div
@@ -218,6 +242,13 @@ const Home: NextPage = () => {
                   subheading={section.subheading}
                   description={section.description ?? ''}
                   video={section.video ?? ''}
+                  cta={section.cta}
+                />
+              ) : section.id === 'mat' ? (
+                <MatSection
+                  heading={section.heading}
+                  subheading={section.subheading}
+                  description={section.description ?? ''}
                   cta={section.cta}
                 />
               ) : section.id === 'collaborate' ? (
