@@ -188,6 +188,17 @@ const Home: NextPage = () => {
     if (index > 0) setActiveIndex(index)
   }, [])
 
+  // Listen for hash changes (browser back/forward, external link with #hash)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1)
+      const index = SECTIONS.findIndex(s => s.id === hash)
+      if (index >= 0) jumpToSection(index)
+    }
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [jumpToSection])
+
   return (
     <main className="relative h-screen w-screen overflow-hidden bg-[#050A14] text-white">
       <div
@@ -340,7 +351,17 @@ const Home: NextPage = () => {
           className="pointer-events-none absolute bottom-6 left-1/2 z-20 w-full -translate-x-1/2 text-center text-xs text-white/30 transition-opacity duration-300"
           style={{ opacity: activeIndex === SECTIONS.length - 1 ? 1 : 0 }}
         >
-          iOS，安卓，steam 商标归版权方所有
+          <div>iOS，安卓，steam 商标归版权方所有</div>
+          <div className="mt-1">
+            <a
+              href="https://beian.miit.gov.cn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pointer-events-auto text-white/30 hover:text-white/50 transition-colors"
+            >
+              沪ICP备2026015079号-1
+            </a>
+          </div>
         </div>
       </div>
     </main>
