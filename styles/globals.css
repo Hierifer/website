@@ -69,3 +69,43 @@ a {
   margin: 10px 0;
   padding: 10px;
 }
+
+/* StarAI heading star */
+.starai-heading {
+  position: relative;
+}
+
+.starai-heading::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -20px;
+  width: 20px;
+  height: 20px;
+  background: url('/star.svg') no-repeat center / contain;
+  filter: brightness(0) saturate(100%) invert(76%) sepia(60%) saturate(600%) hue-rotate(5deg) brightness(105%);
+}
+
+/* StarAI floating hearts */
+@keyframes floatHeartUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(0.6);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(-30px) translateX(var(--drift)) scale(1.15);
+  }
+  50% {
+    opacity: 0.85;
+    transform: translateY(-90px) translateX(calc(var(--drift) * -0.6)) scale(1);
+  }
+  80% {
+    opacity: 0.4;
+    transform: translateY(-140px) translateX(var(--drift)) scale(0.9);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-180px) translateX(calc(var(--drift) * -0.3)) scale(0.7);
+  }
+}

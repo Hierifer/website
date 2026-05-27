@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import VanillaSection from '../components/home/VanillaSection'
-import CybermonSection from '../components/home/CybermonSection'
+import StarAISection from '../components/home/StarAISection'
 import ToffeeSection from '../components/home/ToffeeSection'
 import BrownieSection from '../components/home/BrownieSection'
 import MatSection from '../components/home/MatSection'
@@ -35,12 +35,11 @@ const SECTIONS = [
     cta: { label: '敬请期待', href: 'https://vanilla.neo-hex.com' },
   },
   {
-    id: 'craft',
-    heading: 'Cybermon',
-    subheading: '你的战斗怪兽',
+    id: 'starai',
+    heading: 'StarAI',
+    subheading: '通过 Star Agent 生成你的 Super Idol',
     description: '支持 iOS 和 Android',
-    video: '/cbyermon.mp4',
-    cta: { label: '敬请期待', href: 'https://vanilla.neo-hex.com' },
+    cta: { label: '敬请期待', href: '#starai' },
   },
   {
     id: 'collaborate',
@@ -220,23 +219,6 @@ const Home: NextPage = () => {
               key={section.id}
               className={`relative flex h-screen w-screen shrink-0 items-center justify-center overflow-hidden ${section.id === 'collaborate' ? 'bg-black-800 text-slate-900' : ''}`}
             >
-              {/* Video background for sections with video */}
-              {section.video && (
-                <video
-                  className="absolute inset-0 h-full w-full object-cover"
-                  src={section.video}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
-              )}
-
-              {/* Gray overlay for cybermon */}
-              {section.id === 'craft' && (
-                <div className="absolute inset-0 bg-black/40" />
-              )}
-
               {/* Content */}
               {section.id === 'vanilla' ? (
                 <VanillaSection
@@ -247,12 +229,11 @@ const Home: NextPage = () => {
                   phoneVideo={section.phoneVideo}
                   cta={section.cta}
                 />
-              ) : section.id === 'craft' ? (
-                <CybermonSection
+              ) : section.id === 'starai' ? (
+                <StarAISection
                   heading={section.heading}
                   subheading={section.subheading}
                   description={section.description ?? ''}
-                  video={section.video ?? ''}
                   cta={section.cta}
                 />
               ) : section.id === 'mat' ? (
