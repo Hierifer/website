@@ -5,6 +5,7 @@ import StarAISection from '../components/home/StarAISection'
 import ToffeeSection from '../components/home/ToffeeSection'
 import BrownieSection from '../components/home/BrownieSection'
 import MatSection from '../components/home/MatSection'
+import God2DSection from '../components/home/God2DSection'
 
 const TRANSITION_DURATION = 900
 const WHEEL_DAMPING = 0.72
@@ -40,6 +41,13 @@ const SECTIONS = [
     subheading: '通过 Star Agent 生成你的 Super Idol',
     description: '支持 iOS 和 Android',
     cta: { label: '敬请期待', href: '#starai' },
+  },
+  {
+    id: 'god2d',
+    heading: 'God2D',
+    subheading: 'AI 驱动的 Godot 2D 游戏编辑器',
+    description: '支持 macOS、Windows 和 Linux',
+    cta: { label: '敬请期待', href: '#god2d' },
   },
   {
     id: 'collaborate',
@@ -231,6 +239,13 @@ const Home: NextPage = () => {
                 />
               ) : section.id === 'starai' ? (
                 <StarAISection
+                  heading={section.heading}
+                  subheading={section.subheading}
+                  description={section.description ?? ''}
+                  cta={section.cta}
+                />
+              ) : section.id === 'god2d' ? (
+                <God2DSection
                   heading={section.heading}
                   subheading={section.subheading}
                   description={section.description ?? ''}
