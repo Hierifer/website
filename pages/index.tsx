@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import VanillaSection from '../components/home/VanillaSection'
 import StarAISection from '../components/home/StarAISection'
-import ToffeeSection from '../components/home/ToffeeSection'
+import RosamarySection from '../components/home/RosamarySection'
 import BrownieSection from '../components/home/BrownieSection'
 import MatSection from '../components/home/MatSection'
 import God2DSection from '../components/home/God2DSection'
@@ -30,7 +30,7 @@ const SECTIONS = [
   },
   {
     id: 'studio',
-    heading: 'Toffee',
+    heading: 'Rosamary',
     subheading: '你的 AI 投资顾问',
     description: '支持 iOS 和 Android',
     cta: { label: '敬请期待', href: 'https://vanilla.neo-hex.com' },
@@ -281,7 +281,7 @@ const Home: NextPage = () => {
                       opacity: index === activeIndex ? 0.15 : 0.3,
                     }}
                   />
-                  <ToffeeSection
+                  <RosamarySection
                     heading={section.heading}
                     subheading={section.subheading}
                     cta={section.cta}

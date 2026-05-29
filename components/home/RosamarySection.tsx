@@ -13,7 +13,7 @@ interface IndexData {
   changePercent: number
 }
 
-interface ToffeeSectionProps {
+interface RosamarySectionProps {
   heading: string
   subheading: string
   cta?: { label: string; href: string }
@@ -35,7 +35,7 @@ const TEMP_INDEX_DATA: IndexData[] = [
   { symbol: '^N225', name: 'Nikkei 225', nameCn: '日经225', price: 33912.84, change: 205.63, changePercent: 0.61 },
 ]
 
-const ToffeeSection: React.FC<ToffeeSectionProps> = ({ heading, subheading, cta }) => {
+const RosamarySection: React.FC<RosamarySectionProps> = ({ heading, subheading, cta }) => {
   const [indices, setIndices] = useState<IndexData[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -125,7 +125,7 @@ const ToffeeSection: React.FC<ToffeeSectionProps> = ({ heading, subheading, cta 
         )}
       </div>
 
-      {/* Right — Index quotes and Toffee logo */}
+      {/* Right — Index quotes and Rosamary logo */}
       <div className="flex flex-1 items-center justify-center">
         <div className="relative w-full max-w-md">
           {/* Gradient background */}
@@ -133,13 +133,13 @@ const ToffeeSection: React.FC<ToffeeSectionProps> = ({ heading, subheading, cta 
 
           {/* Index quotes panel */}
           <div className="rounded-3xl bg-black/40 backdrop-blur-xl border border-white/10 overflow-hidden">
-            {/* Header with Toffee logo */}
+            {/* Header with Rosamary logo */}
             <div className="flex items-center justify-between border-b border-white/10 px-6 py-4">
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
-                  <span className="text-xl font-bold text-white">T</span>
+                  <span className="text-xl font-bold text-white">R</span>
                 </div>
-                <span className="text-xl font-semibold text-white/90">Toffee</span>
+                <span className="text-xl font-semibold text-white/90">Rosamary</span>
               </div>
               {loading && (
                 <div className="h-2 w-2 rounded-full bg-white/40 animate-pulse" />
@@ -170,4 +170,4 @@ const ToffeeSection: React.FC<ToffeeSectionProps> = ({ heading, subheading, cta 
   )
 }
 
-export default ToffeeSection
+export default RosamarySection
