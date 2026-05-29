@@ -41,8 +41,8 @@ const BrownieSection: React.FC<BrownieSectionProps> = ({ heading, subheading, vi
 	}, [])
 
 	return (
-		<div className="relative z-10 flex h-full w-full max-w-6xl flex-col items-center justify-between gap-12 px-12 text-white md:flex-row md:gap-20 md:px-20">
-			<div className="flex w-full flex-1 justify-center md:max-w-xl">
+		<div className="relative z-10 flex h-full w-full max-w-6xl flex-col items-center justify-center gap-6 px-6 text-white min-[800px]:flex-row min-[800px]:justify-between min-[800px]:gap-20 min-[800px]:px-20">
+			<div className="flex w-full flex-1 justify-center min-[800px]:max-w-xl">
 				<div className="relative w-full">
 					<div className="pointer-events-none absolute -inset-6 -z-10 rounded-[48px] bg-amber-500/25 blur-3xl opacity-70" />
 					<div className="aspect-[4/5] overflow-hidden rounded-[36px] border border-white/15 bg-black/80 shadow-2xl">
@@ -59,11 +59,11 @@ const BrownieSection: React.FC<BrownieSectionProps> = ({ heading, subheading, vi
 				</div>
 			</div>
 
-			<div className="flex flex-1 flex-col items-start text-left">
-				<h2 className="mb-4 text-4xl font-semibold tracking-wide md:text-5xl">
+			<div className="flex flex-1 flex-col items-center text-center min-[800px]:items-start min-[800px]:text-left">
+				<h2 className="mb-2 text-2xl font-semibold tracking-wide min-[800px]:mb-4 min-[800px]:text-5xl">
 					{heading}
 				</h2>
-				<p className="text-lg font-light text-white/80 md:text-xl">{subheading}</p>
+				<p className="text-sm font-light text-white/80 min-[800px]:text-xl">{subheading}</p>
 			</div>
 		</div>
 	)

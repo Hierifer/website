@@ -298,10 +298,10 @@ const Home: NextPage = () => {
                     }}
                   />
                   <div className="relative z-10 max-w-2xl px-6 text-center">
-                    <h2 className="mb-4 text-4xl font-semibold tracking-wider md:text-5xl">
+                    <h2 className="mb-2 text-2xl font-semibold tracking-wider min-[800px]:mb-4 min-[800px]:text-5xl">
                       {section.heading}
                     </h2>
-                    <p className="mx-auto text-lg font-light md:text-xl">
+                    <p className="mx-auto text-sm font-light min-[800px]:text-xl">
                       {section.subheading}
                     </p>
                   </div>

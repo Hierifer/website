@@ -83,26 +83,26 @@ const StarAISection: React.FC<StarAISectionProps> = ({ heading, subheading, desc
   }, [spawnHeart])
 
   return (
-    <div className="relative z-10 flex h-full w-full max-w-6xl items-center justify-between gap-16 px-12 md:px-20">
+    <div className="relative z-10 flex h-full w-full max-w-6xl flex-col-reverse items-center justify-center gap-6 px-6 min-[800px]:flex-row min-[800px]:justify-between min-[800px]:gap-16 min-[800px]:px-20">
       {/* Left — text */}
-      <div className="flex flex-1 flex-col items-start">
-        <h2 className="starai-heading mb-4 text-5xl font-bold tracking-wide md:text-6xl">
+      <div className="flex flex-col items-center min-[800px]:flex-1 min-[800px]:items-start">
+        <h2 className="starai-heading mb-2 text-3xl font-bold tracking-wide min-[800px]:mb-4 min-[800px]:text-6xl">
           {heading}
         </h2>
-        <p className="text-xl font-light text-white/90 md:text-2xl">
+        <p className="text-base font-light text-white/90 min-[800px]:text-2xl">
           {subheading}
         </p>
-        <p className="mt-3 flex items-center gap-2 text-base font-light text-white/50">
-          <IOSIcon className="h-4 w-4 fill-white" />
+        <p className="mt-2 flex items-center gap-2 text-xs font-light text-white/50 min-[800px]:mt-3 min-[800px]:text-base">
+          <IOSIcon className="h-3 w-3 fill-white min-[800px]:h-4 min-[800px]:w-4" />
           iOS
           <span className="text-white/30">|</span>
-          <AndroidIcon className="h-4 w-4" />
+          <AndroidIcon className="h-3 w-3 min-[800px]:h-4 min-[800px]:w-4" />
           Android
         </p>
         {cta && (
           <a
             href={cta.href}
-            className="mt-10 inline-block rounded-full border border-white/40 px-8 py-3 text-sm font-medium tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-white hover:bg-white/10"
+            className="mt-5 inline-block rounded-full border border-white/40 px-6 py-2 text-xs font-medium tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-white hover:bg-white/10 min-[800px]:mt-10 min-[800px]:px-8 min-[800px]:py-3 min-[800px]:text-sm"
           >
             {cta.label}
           </a>
@@ -110,8 +110,8 @@ const StarAISection: React.FC<StarAISectionProps> = ({ heading, subheading, desc
       </div>
 
       {/* Right — phone mockup with TikTok live overlay */}
-      <div className="flex flex-1 items-center justify-center">
-        <div className="relative">
+      <div className="flex items-center justify-center min-[800px]:flex-1">
+        <div className="relative scale-[0.65] min-[800px]:scale-100">
           {/* Gradient glow — purple/pink idol theme */}
           <div className="pointer-events-none absolute -inset-8 -z-10 bg-gradient-to-br from-purple-500/25 to-pink-500/25 blur-3xl rounded-full" />
 

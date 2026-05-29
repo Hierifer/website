@@ -124,29 +124,29 @@ const VanillaSection: React.FC<VanillaSectionProps> = ({
   }, [])
 
   return (
-    <div className="relative z-10 flex h-full w-full max-w-6xl items-center justify-between gap-16 px-12 md:px-20">
+    <div className="relative z-10 flex h-full w-full max-w-6xl flex-col-reverse items-center justify-center gap-6 px-6 min-[800px]:flex-row min-[800px]:justify-between min-[800px]:gap-16 min-[800px]:px-20">
       {/* Left — text */}
-      <div className="flex flex-1 flex-col items-start">
-        <h2 className="mb-4 flex items-center gap-3 text-5xl font-bold tracking-wide md:text-6xl">
+      <div className="flex flex-col items-center min-[800px]:flex-1 min-[800px]:items-start">
+        <h2 className="mb-2 flex items-center gap-3 text-3xl font-bold tracking-wide min-[800px]:mb-4 min-[800px]:text-6xl">
           {heading}
           {tag && (
-            <span className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-white/70">
+            <span className="rounded-full border border-white/25 bg-white/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-widest text-white/70 min-[800px]:px-3 min-[800px]:py-1 min-[800px]:text-xs">
               {tag}
             </span>
           )}
         </h2>
-        <p className="text-xl font-light text-white/90 md:text-2xl">
+        <p className="text-base font-light text-white/90 min-[800px]:text-2xl">
           <Typewriter text={subheading} />
         </p>
         {description && (
-          <p className="mt-3 flex items-center gap-2 text-base font-light text-white/50">
-            <IOSIcon className="h-4 w-4 fill-white" />
+          <p className="mt-2 flex items-center gap-2 text-xs font-light text-white/50 min-[800px]:mt-3 min-[800px]:text-base">
+            <IOSIcon className="h-3 w-3 fill-white min-[800px]:h-4 min-[800px]:w-4" />
             iOS
             <span className="text-white/30">|</span>
-            <AndroidIcon className="h-4 w-4" />
+            <AndroidIcon className="h-3 w-3 min-[800px]:h-4 min-[800px]:w-4" />
             Android
             <span className="text-white/30">|</span>
-            <SteamIcon className="h-4 w-4" style={{ fill: STEAM_ICON_COLOR }} />
+            <SteamIcon className="h-3 w-3 min-[800px]:h-4 min-[800px]:w-4" style={{ fill: STEAM_ICON_COLOR }} />
             Steam
           </p>
         )}
@@ -155,7 +155,7 @@ const VanillaSection: React.FC<VanillaSectionProps> = ({
             href={cta.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 inline-block rounded-full border border-white/40 px-8 py-3 text-sm font-medium tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-white hover:bg-white/10"
+            className="mt-5 inline-block rounded-full border border-white/40 px-6 py-2 text-xs font-medium tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-white hover:bg-white/10 min-[800px]:mt-10 min-[800px]:px-8 min-[800px]:py-3 min-[800px]:text-sm"
           >
             {cta.label}
           </a>
@@ -163,11 +163,11 @@ const VanillaSection: React.FC<VanillaSectionProps> = ({
       </div>
 
       {/* Right — phone mockup */}
-      <div className="flex flex-1 items-center justify-center">
-        <div className="relative">
+      <div className="flex items-center justify-center min-[800px]:flex-1">
+        <div className="relative scale-[0.65] min-[800px]:scale-100">
           {/* Chat bubble */}
           <div
-            className="absolute right-full top-32 mr-6 whitespace-nowrap rounded-2xl bg-white/15 px-5 py-2.5 text-sm text-white backdrop-blur-md"
+            className="absolute right-full top-32 mr-6 hidden whitespace-nowrap rounded-2xl bg-white/15 px-5 py-2.5 text-sm text-white backdrop-blur-md min-[800px]:block"
             style={greetingStyle}
           >
             {GREETINGS[greetingIndex]}

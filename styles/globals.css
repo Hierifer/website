@@ -8,7 +8,7 @@
   --color-assist: #aaa;
 }
 
-h2 {
+h2:not([class*="font-bold"]) {
   font-size: 1.5rem;
   line-height: 2.5rem;
 }
