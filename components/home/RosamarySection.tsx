@@ -70,20 +70,20 @@ const RosamarySection: React.FC<RosamarySectionProps> = ({ heading, subheading, 
     const sign = isPositive ? '+' : ''
 
     return (
-      <div key={index.symbol} className="flex items-center justify-between rounded-lg bg-white/5 px-4 py-3">
+      <div key={index.symbol} className="flex items-center justify-between rounded-lg bg-white/5 px-3 py-2 md:px-4 md:py-3">
         <div>
-          <div className="text-sm font-medium text-white/90">{index.name}</div>
-          <div className="text-xs text-white/50">{index.nameCn}</div>
+          <div className="text-xs font-medium text-white/90 md:text-sm">{index.name}</div>
+          <div className="text-[10px] text-white/50 md:text-xs">{index.nameCn}</div>
         </div>
         <div className="text-right">
           {loading ? (
-            <div className="text-sm font-semibold text-white/50">--</div>
+            <div className="text-xs font-semibold text-white/50 md:text-sm">--</div>
           ) : (
             <>
-              <div className="text-sm font-semibold text-white/90">
+              <div className="text-xs font-semibold text-white/90 md:text-sm">
                 {formatNumber(index.price)}
               </div>
-              <div className={`text-xs ${colorClass}`}>
+              <div className={`text-[10px] md:text-xs ${colorClass}`}>
                 {sign}{formatNumber(index.changePercent)}%
               </div>
             </>
@@ -94,23 +94,23 @@ const RosamarySection: React.FC<RosamarySectionProps> = ({ heading, subheading, 
   }
 
   return (
-    <div className="relative z-10 flex h-full w-full max-w-6xl items-center justify-between gap-16 px-12 md:px-20">
-      {/* Left — text */}
-      <div className="flex flex-1 flex-col items-start">
-        <h2 className="mb-4 text-5xl font-bold tracking-wide md:text-6xl">
+    <div className="relative z-10 flex h-full w-full max-w-6xl flex-col-reverse items-center justify-center gap-6 px-6 md:flex-row md:justify-between md:gap-16 md:px-20">
+      {/* Left — text (bottom on mobile) */}
+      <div className="flex flex-1 flex-col items-center md:items-start">
+        <h2 className="mb-2 text-3xl font-bold tracking-wide md:mb-4 md:text-6xl">
           {heading}
         </h2>
-        <p className="text-xl font-light text-white/90 md:text-2xl">
+        <p className="text-base font-light text-white/90 md:text-2xl">
           {subheading}
         </p>
-        <p className="mt-3 flex items-center gap-2 text-base font-light text-white/50">
-          <IOSIcon className="h-4 w-4 fill-white" />
+        <p className="mt-2 flex items-center gap-2 text-xs font-light text-white/50 md:mt-3 md:text-base">
+          <IOSIcon className="h-3 w-3 fill-white md:h-4 md:w-4" />
           iOS
           <span className="text-white/30">|</span>
-          <AndroidIcon className="h-4 w-4" />
+          <AndroidIcon className="h-3 w-3 md:h-4 md:w-4" />
           Android
           <span className="text-white/30">|</span>
-          <SteamIcon className="h-4 w-4" style={{ fill: STEAM_ICON_COLOR }} />
+          <SteamIcon className="h-3 w-3 md:h-4 md:w-4" style={{ fill: STEAM_ICON_COLOR }} />
           Steam
         </p>
         {cta && (
@@ -118,28 +118,28 @@ const RosamarySection: React.FC<RosamarySectionProps> = ({ heading, subheading, 
             href={cta.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 inline-block rounded-full border border-white/40 px-8 py-3 text-sm font-medium tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-white hover:bg-white/10"
+            className="mt-5 inline-block rounded-full border border-white/40 px-6 py-2 text-xs font-medium tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-white hover:bg-white/10 md:mt-10 md:px-8 md:py-3 md:text-sm"
           >
             {cta.label}
           </a>
         )}
       </div>
 
-      {/* Right — Index quotes and Rosamary logo */}
-      <div className="flex flex-1 items-center justify-center">
-        <div className="relative w-full max-w-md">
+      {/* Right — Index quotes and Rosamary logo (top on mobile) */}
+      <div className="flex w-full flex-1 items-center justify-center">
+        <div className="relative w-full max-w-xs md:max-w-md">
           {/* Gradient background */}
           <div className="absolute -inset-4 -z-10 bg-gradient-to-br from-amber-500/20 to-orange-600/20 blur-2xl rounded-3xl" />
 
           {/* Index quotes panel */}
-          <div className="rounded-3xl bg-black/40 backdrop-blur-xl border border-white/10 overflow-hidden">
+          <div className="rounded-2xl bg-black/40 backdrop-blur-xl border border-white/10 overflow-hidden md:rounded-3xl">
             {/* Header with Rosamary logo */}
-            <div className="flex items-center justify-between border-b border-white/10 px-6 py-4">
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
-                  <span className="text-xl font-bold text-white">R</span>
+            <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 md:px-6 md:py-4">
+              <div className="flex items-center gap-2 md:gap-3">
+                <div className="h-8 w-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center md:h-10 md:w-10">
+                  <span className="text-base font-bold text-white md:text-xl">R</span>
                 </div>
-                <span className="text-xl font-semibold text-white/90">Rosamary</span>
+                <span className="text-base font-semibold text-white/90 md:text-xl">Rosamary</span>
               </div>
               {loading && (
                 <div className="h-2 w-2 rounded-full bg-white/40 animate-pulse" />
@@ -147,17 +147,17 @@ const RosamarySection: React.FC<RosamarySectionProps> = ({ heading, subheading, 
             </div>
 
             {/* Index quotes */}
-            <div className="space-y-2 px-4 py-3">
+            <div className="space-y-1.5 px-3 py-2 md:space-y-2 md:px-4 md:py-3">
               {loading && indices.length === 0
                 ? Array(5).fill(null).map((_, i) => (
-                    <div key={i} className="flex items-center justify-between rounded-lg bg-white/5 px-4 py-3">
+                    <div key={i} className="flex items-center justify-between rounded-lg bg-white/5 px-3 py-2 md:px-4 md:py-3">
                       <div className="space-y-1">
-                        <div className="h-4 w-20 rounded bg-white/10 animate-pulse" />
-                        <div className="h-3 w-12 rounded bg-white/5 animate-pulse" />
+                        <div className="h-3 w-16 rounded bg-white/10 animate-pulse md:h-4 md:w-20" />
+                        <div className="h-2.5 w-10 rounded bg-white/5 animate-pulse md:h-3 md:w-12" />
                       </div>
                       <div className="space-y-1">
-                        <div className="h-4 w-24 rounded bg-white/10 animate-pulse" />
-                        <div className="h-3 w-16 rounded bg-white/5 animate-pulse" />
+                        <div className="h-3 w-20 rounded bg-white/10 animate-pulse md:h-4 md:w-24" />
+                        <div className="h-2.5 w-12 rounded bg-white/5 animate-pulse md:h-3 md:w-16" />
                       </div>
                     </div>
                   ))
