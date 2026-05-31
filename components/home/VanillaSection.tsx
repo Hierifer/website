@@ -124,7 +124,7 @@ const VanillaSection: React.FC<VanillaSectionProps> = ({
   }, [])
 
   return (
-    <div className="relative z-10 flex h-full w-full max-w-6xl flex-col-reverse items-center justify-center gap-6 px-6 min-[800px]:flex-row min-[800px]:justify-between min-[800px]:gap-16 min-[800px]:px-20">
+    <div className="relative z-10 flex h-full w-full max-w-6xl flex-col-reverse items-center justify-center gap-4 px-6 pb-20 min-[800px]:flex-row min-[800px]:justify-between min-[800px]:gap-16 min-[800px]:px-20 min-[800px]:pb-0">
       {/* Left — text */}
       <div className="flex flex-col items-center min-[800px]:flex-1 min-[800px]:items-start">
         <h2 className="mb-2 flex items-center gap-3 text-3xl font-bold tracking-wide min-[800px]:mb-4 min-[800px]:text-6xl">
@@ -164,7 +164,7 @@ const VanillaSection: React.FC<VanillaSectionProps> = ({
 
       {/* Right — phone mockup */}
       <div className="flex items-center justify-center min-[800px]:flex-1">
-        <div className="relative scale-[0.65] min-[800px]:scale-100">
+        <div className="relative -my-[100px] scale-[0.65] min-[800px]:my-0 min-[800px]:scale-100">
           {/* Chat bubble */}
           <div
             className="absolute right-full top-32 mr-6 hidden whitespace-nowrap rounded-2xl bg-white/15 px-5 py-2.5 text-sm text-white backdrop-blur-md min-[800px]:block"

@@ -10,7 +10,7 @@ interface God2DSectionProps {
 
 const God2DSection: React.FC<God2DSectionProps> = ({ heading, subheading, description, cta }) => {
   return (
-    <div className="relative z-10 flex h-full w-full max-w-6xl flex-col-reverse items-center justify-center gap-6 px-6 min-[800px]:flex-row min-[800px]:justify-between min-[800px]:gap-16 min-[800px]:px-20">
+    <div className="relative z-10 flex h-full w-full max-w-6xl flex-col-reverse items-center justify-center gap-4 px-6 pb-20 min-[800px]:flex-row min-[800px]:justify-between min-[800px]:gap-16 min-[800px]:px-20 min-[800px]:pb-0">
       {/* Left — text */}
       <div className="flex flex-col items-center min-[800px]:flex-1 min-[800px]:items-start">
         <h2 className="mb-2 text-3xl font-bold tracking-wide min-[800px]:mb-4 min-[800px]:text-6xl">
