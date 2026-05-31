@@ -179,13 +179,7 @@ const Home: NextPage = () => {
     }
   }, [])
 
-  // Sync URL hash when slide changes
-  useEffect(() => {
-    const id = SECTIONS[activeIndex]?.id
-    if (id) {
-      history.replaceState(null, '', `#${id}`)
-    }
-  }, [activeIndex])
+  const hasMountedRef = useRef(false)
 
   // On mount, jump to section from URL hash
   useEffect(() => {
@@ -193,7 +187,20 @@ const Home: NextPage = () => {
     if (!hash) return
     const index = SECTIONS.findIndex(s => s.id === hash)
     if (index > 0) setActiveIndex(index)
+    hasMountedRef.current = true
   }, [])
+
+  // Sync URL hash when slide changes (skip initial render)
+  useEffect(() => {
+    if (!hasMountedRef.current) {
+      hasMountedRef.current = true
+      return
+    }
+    const id = SECTIONS[activeIndex]?.id
+    if (id) {
+      history.replaceState(null, '', `#${id}`)
+    }
+  }, [activeIndex])
 
   // Listen for hash changes (browser back/forward, external link with #hash)
   useEffect(() => {
